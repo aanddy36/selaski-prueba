@@ -1,37 +1,43 @@
 # PRUEBA TÉCNICA SELASKI - ANDRÉS DEL CHIARO
 
-## Setup base de datos
+## Configuración de la base de datos
 
 Para poder correr este proyecto localmente, se necesita (1) tener MySQL instalado, (2) crear la DB 'prueba_andres_selaski' en MySQL, (3) crear la variable de ambiente DB_URL y (4) crear la migración de Prisma para generar las tablas y el cliente.
 
 Paso a paso sería:
 
-1. Instalar MySQL desde https://www.mysql.com/downloads/ en caso de no tenerlo
-2. Ingresar al servidor MySQL desde la CLI proporcionada por MySQL llamada "MySQL 8.0 CLI"
-3. Con el comando 'CREATE DATABASE prueba_andres_selaski' creamos la DB localmente.
-4. Ahora, en nuestro proyecto deberemos crear el archivo .env, y dentro colocar la variable DATABASE_URL. Esta seguirá el patrón DATABASE_URL="mysql://USUARIO:CONTRASEÑA@HOST:PUERTO/NOMBRE_BASE" que podemos encontrar en .env.example. 
+1. Instala MySQL si aún no lo tienes: [Descargar MySQL](https://www.mysql.com/downloads/)
+2. Accede a tu servidor MySQL desde la CLI (por ejemplo: **MySQL 8.0 Command Line Client**).
+3. Ejecuta el siguiente comando para crear la base de datos:
 
-Con ya tener creada nuestra DB localmente, ya podemos seguir con el siguiente paso.
+   ```sql
+   CREATE DATABASE prueba_andres_selaski;
+   ```
 
+4. En el proyecto, crea un archivo .env en la raíz y define la variable DATABASE_URL con este formato:
+
+   ```bash
+   DATABASE_URL="mysql://USUARIO:CONTRASEÑA@HOST:PUERTO/prueba_andres_selaski"
+   ```
+
+Puedes guiarte por el archivo .env.example.
 
 ## Correr el proyecto localmente
 
-
-Para correr el proyecto, debemos clonar el repo con: 
+Para correr el proyecto, debemos clonar el repo con:
 
 ```bash
-cd control-transaccional
+git clone https://github.com/aanddy36/selaski-prueba.git
+cd selaski-prueba
 ```
 
-Luego debemos instalar las dependencias con 
+Instala las dependencias con
 
 ```bash
 npm install
 ```
 
-Creamos el archivo .env y agregamos el URL de nuestra DB siguiendo el ejemplo de .env.example.
-
-Luego generamos la estructuta de tablas en nuestra DB local y generamos el cliente de prisma con:
+Crea las tablas en la base de datos y genera el cliente Prisma:
 
 ```bash
 npx prisma migrate dev --name crear_tablas
@@ -43,5 +49,10 @@ Por último, corremos el proyecto con el comando :
 npm run start
 ```
 
-Los endpoints los podremos probar en Postman o Thunderclient. Ej: http://localhost:3000/users
+Los endpoints los podremos probar en Postman o Thunderclient.
 
+Ejemplo:
+
+```bash
+GET http://localhost:3000/users
+```
