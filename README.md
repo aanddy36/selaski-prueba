@@ -20,7 +20,7 @@ Paso a paso sería:
    DATABASE_URL="mysql://USUARIO:CONTRASEÑA@HOST:PUERTO/prueba_andres_selaski"
    ```
 
-Puedes guiarte por el archivo .env.example.
+  Puedes guiarte por el archivo .env.example.
 
 ## Correr el proyecto localmente
 
@@ -31,7 +31,7 @@ git clone https://github.com/aanddy36/selaski-prueba.git
 cd selaski-prueba
 ```
 
-Instala las dependencias con
+Instala las dependencias con:
 
 ```bash
 npm install
